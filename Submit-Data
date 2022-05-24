@@ -1,0 +1,204 @@
+
+function onFormSubmit(event) {
+
+  record_array = []
+
+  var form = FormApp.openById(''); // Form ID
+  var formResponses = form.getResponses(); //gets an array of all responses
+  var formCount = formResponses.length; //access the answers submitted by a respondent 
+
+  var formResponse = formResponses[formCount - 1]; 
+  var itemResponses = formResponse.getItemResponses();
+
+  for (var j = 0; j < itemResponses.length; j++) {
+  var itemResponse = itemResponses[j];
+    var title = itemResponse.getItem().getTitle();
+    var answer = itemResponse.getResponse();
+
+    //Logger.log(title);
+    //Logger.log(answer);
+    
+    record_array.push(answer);
+  }
+  
+    var record_array = [record_array[0], record_array[1], record_array[2]];
+// define the required access level in the array for the corresponding system in the accesss sheet
+    if (record_array[2] == "IT") {
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "Admin", "Admin", "Admin", "Admin", "User", "No Access", "User", "User", "No Access", "Admin", "No Access", "No Access", "Admin", "No Access", "Admin", "Admin", "Admin", "Admin", "Admin", "Admin", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "Admin", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+    }
+    else if (record_array[2] == "Tech support") {
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "User", "User", "No Access", "User", "User", "No Access", "No Access", "User", "User", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32],  Array[33], Array[34], Array[35]);
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+    }
+    else if (record_array[2] == "HR") {
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "Admin", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+    }
+else if (record_array[2] == "Finance") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "Admin", "User", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "No Access", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+    }
+else if (record_array[2] == "Sales") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Marketing") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "No Access", "User", "No Access", "User", "No Access", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Account management") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "No Access", "User", "No Access", "User", "User", "User", "User", "No Access", "No Access", "No Access", "No Access", "User", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Legal") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "User", "User", "User", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Compliance") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Technical compliance") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Game producer") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "User", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Game design") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "N/A", "N/A", "User", "User", "User", "No Access", "No Access", "N/A", "N/A", "No Access", "N/A", "User", "N/A", "User", "User", "N/a", "User", "User", "No Access", "User", "No Access", "User", "User", "N/A", "N/A", "N/A", "N/A", "No Access", "User", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Game development") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "User", "User", "N/a", "User", "User", "No Access", "User", "No Access", "No Access", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Art") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "N/A", "User", "User", "N/a", "User", "User", "No Access", "No Access", "No Access", "User", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "User", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Platform development") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "User", "User", "No Access", "User", "No Access", "User", "User", "No Access", "User", "No Access", "User", "User", "No Access", "User", "User", "User", "User", "No Access", "User", "User", "No Access", "User", "No Access", "No Access", "No Access", "User", "User", "User", "No Access", "No Access", "No Access" ] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Infrastructure") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "User", "User", "No Access", "No Access", "No Access", "No Access", "User", "User", "User", "No Access", "No Access","No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Game server") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "User", "User", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "User", "User", "No Access", "No Access", "User", "User", "User", "User", "User", "No Access", "No Access", "No Access", "User", "User", "User", "No Access", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "Delivery/product owners") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "User", "No Access", "User", "User", "User", "No Access", "No Access", "No Access", "No Access", "No Access", "User", "User", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+else if (record_array[2] == "BI") { 
+    var First_Name = record_array[0]
+    var Last_Name = record_array[1]
+    var Array = [First_Name, Last_Name, "No Access", "No Access", "User", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "No Access", "User", "No Access", "User", "No Access", "User", "User", "N/A", "N/A", "N/A", "N/A", "No Access", "User", "User", "User", "No Access", "No Access"] 
+    AddRecord(Array[0], Array[1], Array[2], Array[3], Array[4], Array[5], Array[6],Array[7], Array[8], Array[9], Array[10], Array[11], Array[12], Array[13], Array[14], Array[15], Array[16], Array[17], Array[18], Array[19], Array[20], Array[21], Array[22], Array[23], Array[24], Array[25], Array[26], Array[27], Array[28], Array[29], Array[30],Array[31], Array[32], Array[33], Array[34], Array[34], Array[35]);  
+    Logger.log(Array[0])
+    Logger.log(Array[1])
+    Logger.log(Array[2])
+}
+//push the array to google sheets
+    function AddRecord(First_name, Last_name, Backoffice_client_production, Backoffice_client_integration_staging, Jira_confluence, Bitbucket, Github, Google_workspace_admin_control_panel, Jenkins, Kubernetes, AWS, Artifactory, Bastion, Clickup, Postgress, Approvalmax, Slack, Smartsheets, Docker, Docker_GSI, Microsoft_account, Opsgenie, Knowbe4, ISMS_online, Good_access, Bamboo, Vixio, Client_area, Testrail, TPM, Xero, Travelperk, Amber_gaming_compliance, Adobe, Contient8, Percona) {
+      var url = '';   //URL OF GOOGLE SHEET;
+  var ss= SpreadsheetApp.openByUrl(url);
+  var dataSheet = ss.getSheetByName("Access");
+  dataSheet.appendRow([First_name, Last_name, Backoffice_client_production, Backoffice_client_integration_staging, Jira_confluence, Bitbucket, Github, Google_workspace_admin_control_panel, Jenkins, Kubernetes, AWS, Artifactory, Bastion, Clickup, Postgress, Approvalmax, Slack, Smartsheets, Docker,Docker_GSI, Microsoft_account, Opsgenie, Knowbe4, ISMS_online, Good_access, Bamboo, Vixio, Client_area, Testrail, TPM, Xero, Travelperk, Amber_gaming_compliance, Adobe, Contient8, Percona]);
+   }}
+   
