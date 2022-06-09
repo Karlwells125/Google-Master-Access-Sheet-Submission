@@ -1,4 +1,4 @@
-# Google-Master-Access-Sheet-Submission
+# Google-Master-Access-Sheet-Submission-From-Google-Form
 Google App script linked to a Google Form used to submit staff access to Master Access Google Sheet.
 
 New starters system access is submitted to Google sheet based on the team they are joining.
